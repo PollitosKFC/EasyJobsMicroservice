@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          uri:
+          uri: https://github.com/PollitosKFC/EasyJobsMicroservice.git
           searchPaths: config-data
           user-name:
           password:
