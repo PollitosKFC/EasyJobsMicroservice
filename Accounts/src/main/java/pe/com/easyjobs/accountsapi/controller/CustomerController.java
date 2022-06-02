@@ -1,5 +1,6 @@
 package pe.com.easyjobs.accountsapi.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,8 @@ import pe.com.easyjobs.accountsapi.service.CustomerService;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
+@Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:3306")
 @RequestMapping("/customers")
 public class CustomerController {
     @Autowired

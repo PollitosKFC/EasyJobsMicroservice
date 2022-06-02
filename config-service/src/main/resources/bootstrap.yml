@@ -8,5 +8,11 @@ spring:
         git:
           uri: https://github.com/PollitosKFC/EasyJobsMicroservice.git
           searchPaths: config-data
-          user-name:
-          password:
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+          default-label: "master"
+
+  security:
+    user:
+      name: root
+      password: s3cr3t

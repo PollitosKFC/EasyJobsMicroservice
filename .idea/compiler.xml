@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <annotationProcessing>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
-        </processorPath>
-        <module name="pe.edu.upc.techniciansearchapi.EasyJobs.main" />
-      </profile>
-    </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Accounts" target="17" />
       <module name="Accounts.main" target="17" />
       <module name="Accounts.test" target="17" />
+      <module name="Appointment" target="17" />
+      <module name="Appointment.main" target="17" />
+      <module name="Appointment.test" target="17" />
       <module name="CloseAppointment" target="17" />
       <module name="CloseAppointment.main" target="17" />
       <module name="CloseAppointment.test" target="17" />
       <module name="config-service.Accounts.main" target="17" />
       <module name="config-service.Accounts.test" target="17" />
-      <module name="Easyjobs" target="11" />
-      <module name="Easyjobs.main" target="11" />
-      <module name="Easyjobs.test" target="11" />
       <module name="pe.edu.upc.techniciansearchapi.EasyJobs" target="11" />
       <module name="pe.edu.upc.techniciansearchapi.EasyJobs.main" target="11" />
       <module name="pe.edu.upc.techniciansearchapi.EasyJobs.test" target="11" />
       <module name="Qualification" target="17" />
       <module name="Qualification.main" target="17" />
       <module name="Qualification.test" target="17" />
+      <module name="TechnicianDetails" target="17" />
+      <module name="TechnicianDetails.main" target="17" />
+      <module name="TechnicianDetails.test" target="17" />
+      <module name="TechnicianSearch" target="17" />
+      <module name="TechnicianSearch.main" target="17" />
+      <module name="TechnicianSearch.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

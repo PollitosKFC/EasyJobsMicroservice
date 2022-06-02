@@ -7,6 +7,7 @@
     <file type="web" url="file://$PROJECT_DIR$/CloseAppointment" />
     <file type="web" url="file://$PROJECT_DIR$/config-service" />
     <file type="web" url="file://$PROJECT_DIR$/Qualification" />
+    <file type="web" url="file://$PROJECT_DIR$/registry-service" />
     <file type="web" url="file://$PROJECT_DIR$/TechnicianDetails" />
     <file type="web" url="file://$PROJECT_DIR$/TechnicianSearch" />
   </component>

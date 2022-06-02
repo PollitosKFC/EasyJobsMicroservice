@@ -2,11 +2,17 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Accounts" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Accounts-API-Microservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Appointment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/AppointmentAPI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CloseAppointment" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/CloseAppointmentAPI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Qualification" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/QualificationAPI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TechnicianDetails" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/TechnicianDetailsAPI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TechnicianSearch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/TechnicianSearchAPI" vcs="Git" />
   </component>
 </project>

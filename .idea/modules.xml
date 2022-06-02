@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Appointment.iml" filepath="$PROJECT_DIR$/Appointment.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/EasyJobsMicroservices.iml" filepath="$PROJECT_DIR$/.idea/EasyJobsMicroservices.iml" />
     </modules>
   </component>
