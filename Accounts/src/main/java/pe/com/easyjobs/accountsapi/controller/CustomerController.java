@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.com.easyjobs.accountsapi.entity.Customer;
+import pe.com.easyjobs.accountsapi.entity.Technician;
 import pe.com.easyjobs.accountsapi.resource.CustomerResource;
 import pe.com.easyjobs.accountsapi.resource.SaveCustomerResource;
 import pe.com.easyjobs.accountsapi.service.CustomerService;
@@ -42,6 +43,11 @@ public class CustomerController {
         return customerResourceList;
     }
 
+    @GetMapping(value = "/getCustomerResponse/{id}")
+    public ResponseEntity<Customer> getCustomerResponse(@PathVariable("id") Long id){
+        Customer customer = customerService.getByCustomerId(id);
+        return ResponseEntity.ok(customer);
+    }
     @GetMapping(value = "/getCustomerById/{id}")
     public CustomerResource getCustomerById(@PathVariable("id") Long id){
         Customer customer = customerService.getByCustomerId(id);

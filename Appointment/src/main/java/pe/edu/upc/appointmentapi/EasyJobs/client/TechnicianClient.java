@@ -1,12 +1,10 @@
-package pe.edu.upc.techniciandetailsapi.Easyjobs.client;
-
+package pe.edu.upc.appointmentapi.EasyJobs.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import pe.edu.upc.techniciandetailsapi.Easyjobs.Entity.Technician;
+import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
 
 @FeignClient(name = "Accounts", path = "/technicians")
 //@RequestMapping("/technicians")

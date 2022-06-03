@@ -28,9 +28,6 @@ spring:
         show_sql: true
         use_sql_comments: false
         format_sql: false
-ribbon:
-  eureka:
-    enabled: false
 
 eureka:
   client:
