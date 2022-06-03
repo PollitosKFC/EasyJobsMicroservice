@@ -8,6 +8,8 @@ feign:
     enabled: true
 
 spring:
+  application:
+    name: Account
   h2:
     console:
       enabled: true
@@ -36,6 +38,9 @@ spring:
         use_sql_comments: false
         format_sql: false
 
+Account:
+  ribbon:
+    listOfServers: http://localhost:8095
 eureka:
   client:
     serviceUrl:

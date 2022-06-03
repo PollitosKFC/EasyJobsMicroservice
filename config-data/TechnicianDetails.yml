@@ -6,6 +6,8 @@ feign:
   hystrix:
     enabled: true
 spring:
+    application:
+        name: TechnicianDetails
   h2:
     console:
       enabled: true
@@ -32,6 +34,10 @@ spring:
         show_sql: true
         use_sql_comments: false
         format_sql: false
+
+TechnicianDetails:
+    ribbon:
+        listOfServers: http://localhost:8091
 eureka:
   client:
     serviceUrl:

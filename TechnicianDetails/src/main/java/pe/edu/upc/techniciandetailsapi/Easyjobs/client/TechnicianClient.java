@@ -10,7 +10,7 @@ import pe.edu.upc.techniciandetailsapi.Easyjobs.resource.TechnicianResource;
 
 import java.util.List;
 
-@FeignClient(name = "localhost:8091/technicians")
+@FeignClient(name = "localhost:8091", path = "/technicians")
 //@RequestMapping("/technicians")
 public interface TechnicianClient {
     @GetMapping(value = "/findTechnicianById/{technicianId}")
