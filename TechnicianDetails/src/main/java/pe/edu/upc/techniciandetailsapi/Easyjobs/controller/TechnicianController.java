@@ -1,5 +1,6 @@
 package pe.edu.upc.techniciandetailsapi.Easyjobs.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Controller
+@Slf4j
 @RestController
-@CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("/technicians")
+@RequestMapping("/techniciansAll")
 public class TechnicianController {
     @Autowired
     private TechnicianService technicianService;
@@ -40,6 +40,15 @@ public class TechnicianController {
                 }).
                 collect(Collectors.toList());
         return technicianResourceList;
+    }
+
+    @GetMapping(value = "/findTechnicianById/{technicianId}")
+    public TechnicianResource getTechnician(@PathVariable("technicianId") Long id){
+        Technician technician = technicianService.getByTechnicianId(id);
+        if (technician == null) {
+            return null;
+        }
+        return convertToResource(technician);
     }
 
     private Technician convertToEntity(SaveTechnician resource) {

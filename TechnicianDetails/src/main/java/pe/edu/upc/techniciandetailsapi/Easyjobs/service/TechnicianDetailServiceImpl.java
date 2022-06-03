@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.Entity.Technician;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.Entity.TechnicianDetail;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.Entity.TechnicianFile;
+import pe.edu.upc.techniciandetailsapi.Easyjobs.client.TechnicianClient;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.repository.TechnicianDetailRepository;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.repository.TechnicianFileRepository;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.repository.TechnicianRepository;
@@ -21,6 +22,8 @@ public class TechnicianDetailServiceImpl  implements TechnicianDetailService {
     private final TechnicianFileRepository technicianFileRepository;
     @Autowired
     private final TechnicianRepository technicianRepository;
+    @Autowired
+    private final TechnicianClient technicianClient;
 
 
     @Override

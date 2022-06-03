@@ -1,6 +1,12 @@
 server:
   port: 8091
 
+feign:
+  circuit-breaker:
+    enabled: true
+  hystrix:
+    enabled: true
+
 spring:
   h2:
     console:
@@ -34,3 +40,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
+    fetchRegistry: true
+    healthcheck:
+      enabled: true

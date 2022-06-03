@@ -2,6 +2,7 @@ package pe.com.easyjobs.accountsapi.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.com.easyjobs.accountsapi.entity.Technician;
@@ -35,6 +36,12 @@ public class TechnicianController {
             return null;
         }
         return convertToResource(technician);
+    }
+
+    @GetMapping(value = "/getTechnicianResponse/{id}")
+    public ResponseEntity<Technician> getTechnicianResponse(@PathVariable("id") Long id){
+        Technician technician = technicianService.getByTechnicianId(id);
+        return ResponseEntity.ok(technician);
     }
 
     @GetMapping(value = "/findAllTechnicians")

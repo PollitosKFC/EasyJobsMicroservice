@@ -29,17 +29,6 @@ public class TechnicianDetailController {
     @Autowired
     private ModelMapper modelMapper;
 
-   // @PostMapping("/createTechnicianDetail")
-    //public ResponseEntity<TechnicianDetail> createTechnicianDetail(@RequestBody TechnicianDetail technicianDetail) {
-     //   TechnicianDetail technicianDetailCreated = technicianDetailService.createTechnicianDetail(technicianDetail);
-     //   return ResponseEntity.ok(technicianDetailCreated);
-   // }
-   // @PostMapping("/createTechnicianDetail")
-    //public ResponseEntity<TechnicianDetail> createTechnicianDetail(@RequestBody SaveTechnicianDetailResource resource) {
-       // TechnicianDetail technician = technicianDetailService.createTechnicianDetail(convertToEntity(resource));
-        //return ResponseEntity.ok(technician);
-   //}
-
     @PostMapping("/createTechnicianDetail/{id}")
     public TechnicianDetailResource createTechnicianDetail(@RequestBody SaveTechnicianDetailResource resource, @PathVariable Long id) {
         TechnicianDetail technician = technicianDetailService.createTechnicianDetail(convertToEntityDetail(resource),id);

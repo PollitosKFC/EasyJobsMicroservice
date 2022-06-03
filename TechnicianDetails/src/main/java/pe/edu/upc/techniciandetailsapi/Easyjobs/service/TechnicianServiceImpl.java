@@ -1,10 +1,15 @@
 package pe.edu.upc.techniciandetailsapi.Easyjobs.service;
 
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.Entity.Technician;
+import pe.edu.upc.techniciandetailsapi.Easyjobs.client.TechnicianClient;
 import pe.edu.upc.techniciandetailsapi.Easyjobs.repository.TechnicianRepository;
+import pe.edu.upc.techniciandetailsapi.Easyjobs.resource.SaveTechnician;
+import pe.edu.upc.techniciandetailsapi.Easyjobs.resource.TechnicianResource;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +19,11 @@ import java.util.List;
 public class TechnicianServiceImpl implements TechnicianService {
     @Autowired
     private TechnicianRepository technicianRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+    @Autowired
+    private final TechnicianClient technicianClient;
 
     @Override
     public Technician createTechnician(Technician technician) {
@@ -42,5 +52,19 @@ public class TechnicianServiceImpl implements TechnicianService {
     @Override
     public List<Technician> findAllTechnician() {
         return technicianRepository.findAllTechnician();
+    }
+
+    @Override
+    public Technician getByTechnicianId(Long id) {
+        ResponseEntity<Technician> existingTechnician = technicianClient.getTechnicianResponse(id);
+        if (existingTechnician==null) {
+            return null;
+        }
+        return existingTechnician.getBody();
+    }
+
+    @Override
+     public Technician convertToEntityTechnician(TechnicianResource resource) {
+        return modelMapper.map(resource, Technician.class);
     }
 }
