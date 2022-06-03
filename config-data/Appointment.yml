@@ -1,7 +1,10 @@
 server:
   port: 8092
 
+
 spring:
+  main:
+    allow-bean-definition-overriding: true
   h2:
     console:
       enabled: true
