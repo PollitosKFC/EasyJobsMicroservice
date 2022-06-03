@@ -4,11 +4,7 @@ server:
 feign:
   circuitbreaker:
     enabled: true
-  hystrix:
-    enabled: true
 spring:
-    application:
-        name: TechnicianDetails
   h2:
     console:
       enabled: true
