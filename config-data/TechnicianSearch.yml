@@ -41,8 +41,7 @@ hystrix:
   dashboard:
     proxy-stream-allow-list: "*"
 management:
-  endpoint:
+  endpoints:
     web:
       exposure:
         include: "*"
-        base-path: /
