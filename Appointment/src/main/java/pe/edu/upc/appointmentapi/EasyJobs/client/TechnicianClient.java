@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
 
-@FeignClient(name = "Accounts", path = "/technicians")
+@FeignClient(contextId = "Technician",name = "Accounts", path = "/technicians")
 //@RequestMapping("/technicians")
 public interface TechnicianClient {
     @GetMapping(value = "/getTechnicianResponse/{id}")

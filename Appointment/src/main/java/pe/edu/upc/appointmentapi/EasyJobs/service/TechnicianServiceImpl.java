@@ -2,7 +2,9 @@ package pe.edu.upc.appointmentapi.EasyJobs.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.appointmentapi.EasyJobs.client.TechnicianClient;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
 import pe.edu.upc.appointmentapi.EasyJobs.repository.TechnicianRepository;
 
@@ -15,6 +17,9 @@ public class TechnicianServiceImpl implements TechnicianService {
 
     @Autowired
     private TechnicianRepository technicianRepository;
+
+    @Autowired
+    private final TechnicianClient technicianClient;
 
     @Override
     public Technician createTechnician(Technician technician) {
@@ -39,6 +44,19 @@ public class TechnicianServiceImpl implements TechnicianService {
         newTechnician.setIdentificationNumber(technician.getIdentificationNumber());
         return technicianRepository.save(newTechnician);
     }
+
+    @Override
+    public Technician findTechnicianById(Long id) {
+        ResponseEntity<Technician> existingTechnician = technicianClient.getTechnicianResponse(id);
+        if (existingTechnician==null) {
+            return null;
+        }
+        Technician newTechnician = existingTechnician.getBody();
+        //newTechnician.setTechnician_appointment(null);
+        technicianRepository.save(newTechnician);
+        return existingTechnician.getBody();
+    }
+
     @Override
     public List<Technician> getAllTechnicians() {
         return technicianRepository.getAllTechnicians();

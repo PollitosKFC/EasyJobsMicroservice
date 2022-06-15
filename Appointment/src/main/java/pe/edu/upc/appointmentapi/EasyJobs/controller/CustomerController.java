@@ -42,6 +42,15 @@ public class CustomerController {
         }).collect(Collectors.toList());
         return customerResourceList;
     }
+
+    @GetMapping(value = "/findCustomerById/{id}")
+    public CustomerResource getCustomerById(@PathVariable("id") Long id){
+        Customer customer = customerService.findCustomerById(id);
+        if (customer == null) {
+            return null;
+        }
+        return convertToResource(customer);
+    }
     private Customer convertToEntity(SaveCustomerResource resource){
         return modelMapper.map(resource, Customer.class);
     }

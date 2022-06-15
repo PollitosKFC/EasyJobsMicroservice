@@ -39,3 +39,15 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
     fetchRegistry: true
+
+Feign:
+  hystrix:
+    enabled: true
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"
+management:
+  endpoint:
+    web:
+      exposure:
+        include: "*"

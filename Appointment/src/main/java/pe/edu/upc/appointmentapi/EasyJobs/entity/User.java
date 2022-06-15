@@ -29,6 +29,7 @@ public class User{
     @Column(name = "type", length = 50)
     private String type;
 
+
     @NotNull
     @Column(name = "identificationType", length = 200)
     private String identificationType;

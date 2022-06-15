@@ -44,6 +44,8 @@ public class CustomerServiceImpl implements CustomerService {
         newCustomer.setCity(customer.getCity());
         newCustomer.setDistrict(customer.getDistrict());
         newCustomer.setGender(customer.getGender());
+        newCustomer.setIdentificationNumber(0);
+        newCustomer.setIdentificationType("");
         newCustomer.setType("CUSTOMER");
         newCustomer.setActivated(true);
         return customerRepository.save(newCustomer);

@@ -19,7 +19,6 @@ import java.util.List;
 @SuperBuilder
 public class Customer  extends User{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull

@@ -2,8 +2,11 @@ package pe.edu.upc.appointmentapi.EasyJobs.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.appointmentapi.EasyJobs.client.CustomerClient;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Customer;
+import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
 import pe.edu.upc.appointmentapi.EasyJobs.repository.CustomerRepository;
 
 import java.util.Date;
@@ -15,6 +18,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private final CustomerClient customerClient;
 
     @Override
     public Customer createCustomer(Customer customer) {
@@ -35,6 +41,20 @@ public class CustomerServiceImpl implements CustomerService {
         newCustomer.setActivated(true);
         return customerRepository.save(newCustomer);
     }
+
+    @Override
+    public Customer findCustomerById(Long id) {
+        ResponseEntity<Customer> existingCustomer = customerClient.getCustomerResponse(id);
+        if (existingCustomer==null) {
+            return null;
+        }
+        Customer newCustomer= existingCustomer.getBody();
+        //newCustomer.setCustomer_appointment(null);
+        customerRepository.save(newCustomer);
+        return existingCustomer.getBody();
+    }
+
+
     @Override
     public List<Customer> getAllCustomers() {
         return customerRepository.findAllCustomer();

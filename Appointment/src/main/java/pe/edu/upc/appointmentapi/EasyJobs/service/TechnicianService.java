@@ -7,5 +7,6 @@ import java.util.List;
 @Service
 public interface TechnicianService {
     Technician createTechnician(Technician technician);
+    Technician findTechnicianById(Long id);
     List<Technician> getAllTechnicians();
 }

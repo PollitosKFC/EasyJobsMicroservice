@@ -4,6 +4,8 @@ package pe.edu.upc.appointmentapi.EasyJobs.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.appointmentapi.EasyJobs.client.CustomerClient;
+import pe.edu.upc.appointmentapi.EasyJobs.client.TechnicianClient;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Appointment;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Customer;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
@@ -28,10 +30,16 @@ public class AppointmentServiceImpl  implements AppointmentService {
     @Autowired
     private final AppointmentRepository appointmentRepository;
 
+    @Autowired
+    private CustomerClient customerClient;
+
+    @Autowired
+    private TechnicianClient technicianClient;
+
     @Override
     public Appointment createAppointment(Appointment appointment, Long customerId, Long technicianId) {
         Appointment newAppointment = new Appointment();
-        if (customerRepository.existsById(customerId) && technicianRepository.existsById(technicianId)) {
+       if (customerRepository.existsById(customerId) && technicianRepository.existsById(technicianId)) {
             newAppointment.setCustomer(customerRepository.findById(customerId).orElse(null));
             newAppointment.setTechnician(technicianRepository.findById(technicianId).orElse(null));
             newAppointment.setName(appointment.getName());

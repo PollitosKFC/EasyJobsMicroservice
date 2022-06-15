@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.appointmentapi.EasyJobs.client.CustomerClient;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Appointment;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Customer;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
 import pe.edu.upc.appointmentapi.EasyJobs.resource.*;
 import pe.edu.upc.appointmentapi.EasyJobs.service.AppointmentService;
+import pe.edu.upc.appointmentapi.EasyJobs.service.TechnicianService;
 
 
 import java.util.List;
@@ -33,6 +35,7 @@ public class AppointmentController {
     public AppointmentResource createAppointment(@RequestBody SaveAppointmentResource appointment,
                                                          @RequestParam(name = "customerId") Long customerId,
                                                          @RequestParam(name = "technicianId") Long technicianId) {
+
         Appointment appointmentCreated = appointmentService.createAppointment(convertToEntity(appointment), customerId, technicianId);
         return convertToResource(appointmentCreated);
     }
