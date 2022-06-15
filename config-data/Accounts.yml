@@ -50,5 +50,4 @@ management:
   endpoint:
     web:
       exposure:
-        include: "*"
-        base-path: /
+        include: hystrix.stream
