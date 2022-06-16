@@ -2,7 +2,8 @@ server:
   port: 8082
 eureka:
   client:
-    serviceUrl: http://localhost:8099/eureka/
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
 sprint:
   cloud:
     config:
