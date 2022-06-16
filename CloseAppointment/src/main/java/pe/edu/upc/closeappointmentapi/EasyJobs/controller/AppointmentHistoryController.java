@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Controller
 @RestController
 @CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping(value ="/AppointmentHistory")
+@RequestMapping(value ="/AppointmentHistories")
 public class AppointmentHistoryController {
 
     @Autowired

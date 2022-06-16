@@ -29,9 +29,9 @@ spring:
           predicates:
             - Path=/technicianSearch/**
         - id: CloseAppointment
-          uri: lb://AppointmentHistory
+          uri: lb://AppointmentHistories
           predicates:
-            - Path=/AppointmentHistory/**
+            - Path=/AppointmentHistories/**
         - id: TechnicianDetails
           uri: lb://TechnicianDetails
           predicates:
