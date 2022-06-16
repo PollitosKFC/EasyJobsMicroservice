@@ -3,9 +3,7 @@ server:
 
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    service-url:
+    serviceUrl:
       defaultZone: http://localhost:8099/eureka/
 spring:
   cloud:
@@ -15,9 +13,9 @@ spring:
           enabled: true
       routes:
         - id: Account-customers
-          uri: lb://customers
-          predicates:
-            - Path=/customers/**
+            uri: lb://customers
+            predicates:
+              - Path=/customers/**
         - id: Account-technicians
             uri: lb://technicians
             predicates:
