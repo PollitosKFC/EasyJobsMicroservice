@@ -1,5 +1,6 @@
 package pe.com.easyjobs.accountsapi.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +14,10 @@ import pe.com.easyjobs.accountsapi.service.TechnicianService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Controller
 @RestController
-@CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("account")
+@RequestMapping("/account")
 public class TechnicianController {
     @Autowired
     private TechnicianService technicianService;
