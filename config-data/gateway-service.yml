@@ -13,30 +13,30 @@ spring:
           enabled: true
       routes:
         - id: Account-customers
-            uri: lb://customers
-            predicates:
-              - Path=/customers/**
+          uri: lb://customers
+          predicates:
+            - Path=/customers/**
         - id: Account-technicians
-            uri: lb://technicians
-            predicates:
-              - Path=/technicians/**
+          uri: lb://technicians
+          predicates:
+            - Path=/technicians/**
         - id: Appointment
-            uri: lb://Appointment
-            predicates:
-              - Path=/Appointment/**
+          uri: lb://Appointment
+          predicates:
+            - Path=/Appointment/**
         - id: Qualification
-            uri: lb://Qualification
-            predicates:
-              - Path=/Qualification/**
+          uri: lb://Qualification
+          predicates:
+            - Path=/Qualification/**
         - id: TechnicianSearch
-            uri: lb://technicianSearch
-            predicates:
-              - Path=/technicianSearch/**
+          uri: lb://technicianSearch
+          predicates:
+            - Path=/technicianSearch/**
         - id: AppointmentHistory
-            uri: lb://AppointmentHistory
-            predicates:
-              - Path=/AppointmentHistory/**
+          uri: lb://AppointmentHistory
+          predicates:
+            - Path=/AppointmentHistory/**
         - id: TechnicianDetails
-            uri: lb://TechnicianDetail
-            predicates:
-              - Path=/TechnicianDetail/**
+          uri: lb://TechnicianDetail
+          predicates:
+            - Path=/TechnicianDetail/**
