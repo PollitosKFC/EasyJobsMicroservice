@@ -1,6 +1,5 @@
 package pe.com.easyjobs.accountsapi.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.com.easyjobs.accountsapi.entity.Customer;
-import pe.com.easyjobs.accountsapi.entity.Technician;
 import pe.com.easyjobs.accountsapi.resource.CustomerResource;
 import pe.com.easyjobs.accountsapi.resource.SaveCustomerResource;
 import pe.com.easyjobs.accountsapi.service.CustomerService;
@@ -19,7 +17,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;

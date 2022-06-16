@@ -13,9 +13,9 @@ spring:
           enabled: true
       routes:
         - id: Accounts
-          uri: lb://account
+          uri: lb://accounts
           predicates:
-            - Path=/account/**
+            - Path=/accounts/**
         - id: Appointment
           uri: lb://Appointment
           predicates:
