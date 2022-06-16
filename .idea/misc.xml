@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/Accounts" />
+    <file type="web" url="file://$PROJECT_DIR$/admin-services" />
     <file type="web" url="file://$PROJECT_DIR$/Appointment" />
     <file type="web" url="file://$PROJECT_DIR$/CloseAppointment" />
     <file type="web" url="file://$PROJECT_DIR$/config-service" />
