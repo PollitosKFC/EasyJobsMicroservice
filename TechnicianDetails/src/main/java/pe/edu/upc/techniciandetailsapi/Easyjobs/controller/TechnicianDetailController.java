@@ -19,8 +19,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @RestController
-@CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping(value="/TechnicianDetail")
+@RequestMapping(value="/TechnicianDetails")
 public class TechnicianDetailController {
 
     @Autowired

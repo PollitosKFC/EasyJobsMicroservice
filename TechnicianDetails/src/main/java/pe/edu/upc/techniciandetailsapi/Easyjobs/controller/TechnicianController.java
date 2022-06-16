@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 
 @Slf4j
+@Controller
 @RestController
 @RequestMapping("/techniciansAll")
 public class TechnicianController {

@@ -28,11 +28,11 @@ spring:
           uri: lb://technicianSearch
           predicates:
             - Path=/technicianSearch/**
-        - id: AppointmentHistory
-          uri: lb://CloseAppointment
+        - id: CloseAppointment
+          uri: lb://AppointmentHistory
           predicates:
-            - Path=/CloseAppointment/**
+            - Path=/AppointmentHistory/**
         - id: TechnicianDetails
-          uri: lb://TechnicianDetail
+          uri: lb://TechnicianDetails
           predicates:
-            - Path=/TechnicianDetail/**
+            - Path=/TechnicianDetails/**
