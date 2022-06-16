@@ -1,11 +1,11 @@
 server:
   port: 8091
 
-feign:
-  circuitbreaker:
-    enabled: true
-
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8086
   h2:
     console:
       enabled: true
@@ -39,8 +39,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka/
 
-Feign:
+feign:
   hystrix:
+    enabled: true
+  circuitbreaker:
     enabled: true
 hystrix:
   dashboard:
@@ -50,3 +52,4 @@ management:
     web:
       exposure:
         include: "*"
+
