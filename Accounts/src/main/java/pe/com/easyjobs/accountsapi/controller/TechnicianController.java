@@ -16,20 +16,20 @@ import java.util.stream.Collectors;
 @Controller
 @RestController
 @CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("account/technicians")
+@RequestMapping("account")
 public class TechnicianController {
     @Autowired
     private TechnicianService technicianService;
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping(value = "/createTechnician")
+    @PostMapping(value = "/technicians/createTechnician")
     public TechnicianResource createTechnician(@RequestBody SaveTechnicianResource resource) {
         Technician technicianCreated = technicianService.createTechnician(convertToEntity(resource));
         return convertToResource(technicianCreated);
     }
 
-    @GetMapping(value = "/findTechnicianById/{technicianId}")
+    @GetMapping(value = "/technicians/findTechnicianById/{technicianId}")
     public TechnicianResource getTechnician(@PathVariable("technicianId") Long id){
         Technician technician = technicianService.getByTechnicianId(id);
         if (technician == null) {
@@ -38,13 +38,13 @@ public class TechnicianController {
         return convertToResource(technician);
     }
 
-    @GetMapping(value = "/getTechnicianResponse/{id}")
+    @GetMapping(value = "/technicians/getTechnicianResponse/{id}")
     public ResponseEntity<Technician> getTechnicianResponse(@PathVariable("id") Long id){
         Technician technician = technicianService.getByTechnicianId(id);
         return ResponseEntity.ok(technician);
     }
 
-    @GetMapping(value = "/findAllTechnicians")
+    @GetMapping(value = "/technicians/findAllTechnicians")
     public List<TechnicianResource> getTechnicians(){
         List<Technician> technicians = technicianService.getAllTechnicians();
         if (technicians == null) {
@@ -56,13 +56,13 @@ public class TechnicianController {
         return technicianResourceList;
     }
 
-    @PutMapping(value = "/updateTechnician/{id}")
+    @PutMapping(value = "/technicians/updateTechnician/{id}")
     public TechnicianResource updateTechnician(@PathVariable("id") Long id, @RequestBody SaveTechnicianResource technician){
         Technician technicianUpdated = technicianService.updateTechnician(id, convertToEntity(technician));
         return convertToResource(technicianUpdated);
     }
 
-    @DeleteMapping(value = "/deleteTechnician/{id}")
+    @DeleteMapping(value = "/technicians/deleteTechnician/{id}")
     public TechnicianResource deleteTechnician(@PathVariable("id") Long id){
         Technician technicianDeleted = technicianService.deleteTechnician(id);
         return convertToResource(technicianDeleted);
