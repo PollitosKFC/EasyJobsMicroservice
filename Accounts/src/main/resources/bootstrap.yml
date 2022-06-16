@@ -9,4 +9,5 @@ spring:
 boot:
   admin:
     client:
-      url: http://localhost:8086
+        serviceUrl:
+            defaultZone: http://localhost:8086
