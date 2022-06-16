@@ -1,8 +1,11 @@
 server:
   port: 8079
+
 eureka:
   client:
-    serviceUrl:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
       defaultZone: http://localhost:8099/eureka/
 spring:
   cloud:
