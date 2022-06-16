@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @RestController
-@CrossOrigin(origins = "http://localhost:3306")
 @RequestMapping(value ="/AppointmentHistories")
 public class AppointmentHistoryController {
 
