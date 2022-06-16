@@ -49,6 +49,9 @@ public class CustomerServiceImpl implements CustomerService {
             return null;
         }
         Customer newCustomer= existingCustomer.getBody();
+        if (newCustomer==null) {
+            return null;
+        }
         //newCustomer.setCustomer_appointment(null);
         customerRepository.save(newCustomer);
         return existingCustomer.getBody();
