@@ -1,5 +1,6 @@
 package pe.com.easyjobs.accountsapi.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
-
     @Override
     public Customer getByCustomerId(Long id) {
         Customer customer = customerRepository.findCustomerById(id);
