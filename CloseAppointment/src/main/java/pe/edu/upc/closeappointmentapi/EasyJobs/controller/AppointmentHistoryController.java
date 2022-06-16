@@ -77,7 +77,7 @@ public class AppointmentHistoryController {
         return appointmentHistoryResourceList;
     }
 
-    @GetMapping("findAppointmentHistoryById/")
+    @GetMapping("/findAppointmentHistoryById/")
     public AppointmentHistoryResource findAppointmentHistoryById(@RequestParam Long id)
     {
         AppointmentHistory appointmentHistory = appointmentCloseService.findAppointmentHistoryById(id);
