@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Controller
 @RestController
 @CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("/technicians")
+@RequestMapping("account/technicians")
 public class TechnicianController {
     @Autowired
     private TechnicianService technicianService;

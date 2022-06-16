@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
-@RequestMapping("/customers")
+@RequestMapping("account/customers")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;

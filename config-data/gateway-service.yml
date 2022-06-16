@@ -12,14 +12,10 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: Account-customers
-          uri: lb://customers
+        - id: Accounts
+          uri: lb://account
           predicates:
-            - Path=/customers/**
-        - id: Account-technicians
-          uri: lb://technicians
-          predicates:
-            - Path=/technicians/**
+            - Path=/account/**
         - id: Appointment
           uri: lb://Appointment
           predicates:
