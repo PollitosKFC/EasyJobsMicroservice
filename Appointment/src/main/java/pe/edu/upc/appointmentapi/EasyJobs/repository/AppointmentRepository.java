@@ -24,4 +24,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
     // list all the appointments of a customer
     @Query(value ="SELECT a FROM Appointment a WHERE a.customer.id = ?1 AND a.delete = false")
     List<Appointment> findAppointmentsByCustomerId(Long id);
+
+    // Get By Id
+    @Query(value ="SELECT a FROM Appointment a WHERE a.id = ?1 AND a.delete = false")
+    Appointment findAppointmentById(Long id);
 }

@@ -18,6 +18,7 @@ public interface AppointmentService {
     List<Customer> findCustomersByTechnicianId(Long id);
     List<Customer> findCustomersByTechnicianIdAndStatus(Long id, String status);
     List<Appointment> findAppointmentsByTechnicianId(Long id);
+    Appointment findAppointmentsById(Long id);
     List<Appointment> findByCustomerIdAndTechnician(Long customerId, Long technicianId);
 
 }

@@ -92,7 +92,7 @@ public class AppointmentServiceImpl  implements AppointmentService {
 
     @Override
     public List<Appointment> findAppointmentsByCustomerId(Long id) {
-       return appointmentRepository.findAppointmentsByCustomerId(id);
+        return appointmentRepository.findAppointmentsByCustomerId(id);
     }
 
     @Override
@@ -108,6 +108,11 @@ public class AppointmentServiceImpl  implements AppointmentService {
     @Override
     public List<Appointment> findAppointmentsByTechnicianId(Long id) {
         return appointmentRepository.findAppointmentsByTechnicianId(id);
+    }
+
+    @Override
+    public Appointment findAppointmentsById(Long id) {
+        return appointmentRepository.findAppointmentById(id);
     }
 
     @Override

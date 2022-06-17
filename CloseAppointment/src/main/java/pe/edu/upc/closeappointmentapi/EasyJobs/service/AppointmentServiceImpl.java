@@ -2,7 +2,11 @@ package pe.edu.upc.closeappointmentapi.EasyJobs.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.closeappointmentapi.EasyJobs.client.AppointmentClient;
+import pe.edu.upc.closeappointmentapi.EasyJobs.client.CustomerClient;
+import pe.edu.upc.closeappointmentapi.EasyJobs.client.TechnicianClient;
 import pe.edu.upc.closeappointmentapi.EasyJobs.entity.Appointment;
 import pe.edu.upc.closeappointmentapi.EasyJobs.entity.Customer;
 import pe.edu.upc.closeappointmentapi.EasyJobs.entity.Technician;
@@ -26,6 +30,15 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Autowired
     private final AppointmentRepository appointmentRepository;
 
+    @Autowired
+    private final TechnicianClient technicianClient;
+
+    @Autowired
+    private final CustomerClient customerClient;
+
+    @Autowired
+    private final AppointmentClient appointmentClient;
+
     @Override
     public Appointment createAppointment(Appointment appointment, Long customerId, Long technicianId) {
         Appointment newAppointment = new Appointment();
@@ -42,6 +55,22 @@ public class AppointmentServiceImpl implements AppointmentService {
             return appointmentRepository.save(newAppointment);
         }
         return null;
+    }
+
+    @Override
+    public Appointment getAppointmentById(Long id) {
+        ResponseEntity<Appointment> existingAppointment = appointmentClient.getAppointmentResponse(id);
+        if (existingAppointment==null) {
+            return null;
+        }
+        Appointment newAppointment = existingAppointment.getBody();
+        ResponseEntity<Customer> existingCustomer = customerClient.getCustomerResponse(id);
+        ResponseEntity<Technician> existingTechnician = technicianClient.getTechnicianResponse(id);
+        newAppointment.setAppointment_history(null);
+        newAppointment.setCustomer(existingCustomer.getBody());
+        newAppointment.setTechnician(existingTechnician.getBody());
+        appointmentRepository.save(newAppointment);
+        return existingAppointment.getBody();
     }
 
     @Override
@@ -75,6 +104,21 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public Technician getTechnicianById(Long id) {
+        ResponseEntity<Technician> existingTechnician = technicianClient.getTechnicianResponse(id);
+        if (existingTechnician==null) {
+            return null;
+        }
+        Technician newTechnician = existingTechnician.getBody();
+        if (newTechnician==null) {
+            return null;
+        }
+        //newTechnician.setTechnician_appointment(null);
+        technicianRepository.save(newTechnician);
+        return existingTechnician.getBody();
+    }
+
+    @Override
     public List<Technician> getAllTechnicians() {
         return technicianRepository.findAll();
     }
@@ -98,6 +142,22 @@ public class AppointmentServiceImpl implements AppointmentService {
         newCustomer.setActivated(true);
         return customerRepository.save(newCustomer);
     }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        ResponseEntity<Customer> existingCustomer = customerClient.getCustomerResponse(id);
+        if (existingCustomer==null) {
+            return null;
+        }
+        Customer newCustomer= existingCustomer.getBody();
+        if (newCustomer==null) {
+            return null;
+        }
+        //newCustomer.setCustomer_appointment(null);
+        customerRepository.save(newCustomer);
+        return existingCustomer.getBody();
+    }
+
     @Override
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();

@@ -23,8 +23,9 @@ public class AppointmentCloseServiceImpl implements AppointmentCloseService {
     public AppointmentHistory createAppointmentHistory(AppointmentHistory appointmentHistory, Long appointmentId) {
         AppointmentHistory newAppointmentHistory = new AppointmentHistory();
         newAppointmentHistory.setId(appointmentId);
-        newAppointmentHistory.setAppointment(appointmentRepository.findById(appointmentId).orElse(null));
+        newAppointmentHistory.setRealDate(new Date());
         newAppointmentHistory.setFinishDate(new Date());
+        newAppointmentHistory.setAppointment(appointmentRepository.findById(appointmentId).orElse(null));
         newAppointmentHistory.setQualification(appointmentHistory.getQualification());
         newAppointmentHistory.setQualificationComment(appointmentHistory.getQualificationComment());
         return appointmentHistoryRepository.save(newAppointmentHistory);

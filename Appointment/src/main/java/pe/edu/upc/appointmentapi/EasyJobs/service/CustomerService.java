@@ -8,7 +8,6 @@ import java.util.List;
 @Service
 public interface CustomerService {
     Customer createCustomer(Customer customer);
-
     Customer findCustomerById(Long id);
     List<Customer> getAllCustomers();
 }

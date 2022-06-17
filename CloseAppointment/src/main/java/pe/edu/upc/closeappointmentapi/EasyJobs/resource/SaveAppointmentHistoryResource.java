@@ -6,6 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Data
 public class SaveAppointmentHistoryResource {
@@ -13,6 +14,14 @@ public class SaveAppointmentHistoryResource {
     @NotNull
     @Min(0)
     private Double qualification;
+
+    @NotBlank
+    @NotNull
+    private Date realDate;
+
+    @NotBlank
+    @NotNull
+    private Date finishDate;
 
     @NotBlank
     @NotNull

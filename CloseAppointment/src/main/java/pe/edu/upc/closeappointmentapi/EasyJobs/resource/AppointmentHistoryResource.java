@@ -7,6 +7,7 @@ import java.util.Date;
 @Data
 public class AppointmentHistoryResource {
     private Long id;
+    private Date realDate;
     private Date finishDate;
     private Double qualification;
     private String qualificationComment;

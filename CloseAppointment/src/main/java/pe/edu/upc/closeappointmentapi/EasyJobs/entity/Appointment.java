@@ -1,6 +1,8 @@
 package pe.edu.upc.closeappointmentapi.EasyJobs.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,12 +40,18 @@ public class Appointment {
     @Column(name = "delete")
     private Boolean delete;
 
-    @JsonBackReference
+    @JsonIdentityInfo(
+            scope = Technician.class,
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "technician_id")
     private Technician technician;
 
-    @JsonBackReference
+    @JsonIdentityInfo(
+            scope = Technician.class,
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private Customer customer;

@@ -149,6 +149,11 @@ public class AppointmentController {
         }).collect(Collectors.toList());
         return appointmentResourceList;
     }
+    @GetMapping("/findAppointmentById/{id}")
+    public ResponseEntity<Appointment> getAppointmentResponse(@PathVariable("id") Long id){
+        Appointment appointment = appointmentService.findAppointmentsById(id);
+        return ResponseEntity.ok(appointment);
+    }
 
     private Appointment convertToEntity(SaveAppointmentResource resource){
         return modelMapper.map(resource, Appointment.class);

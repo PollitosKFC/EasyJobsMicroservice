@@ -37,7 +37,6 @@ public class Appointment {
 
     @Column(name = "delete")
     private Boolean delete;
-
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "technician_id")

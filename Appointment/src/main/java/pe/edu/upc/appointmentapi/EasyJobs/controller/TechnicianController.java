@@ -2,6 +2,7 @@ package pe.edu.upc.appointmentapi.EasyJobs.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Technician;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 @Controller
 @RestController
 @CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("/technicians")
+@RequestMapping("/appointmentTechnicians")
 public class TechnicianController {
 
     @Autowired
@@ -23,13 +24,13 @@ public class TechnicianController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping(value = "/createTechnician")
+    @PostMapping(value = "/technicians/createTechnician")
     public TechnicianResource createTechnician(@RequestBody SaveTechnicianResource resource) {
         Technician technicianCreated = technicianService.createTechnician(convertToEntity(resource));
         return convertToResource(technicianCreated);
     }
 
-    @GetMapping(value = "/findTechnicianById/{technicianId}")
+    @GetMapping(value = "/technicians/findTechnicianById/{technicianId}")
     public TechnicianResource getTechnician(@PathVariable("technicianId") Long id){
         Technician technician = technicianService.findTechnicianById(id);
         if (technician == null) {
@@ -38,7 +39,12 @@ public class TechnicianController {
         return convertToResource(technician);
     }
 
-    @GetMapping(value = "/findAllTechnicians")
+    @GetMapping(value = "/technicians/getTechnicianResponse/{id}")
+    public ResponseEntity<Technician> getTechnicianResponse(@PathVariable("id") Long id){
+        Technician technician = technicianService.findTechnicianById(id);
+        return ResponseEntity.ok(technician);
+    }
+    @GetMapping(value = "/technicians/findAllTechnicians")
     public List<TechnicianResource> getTechnicians(){
         List<Technician> technicians = technicianService.getAllTechnicians();
         if (technicians == null) {

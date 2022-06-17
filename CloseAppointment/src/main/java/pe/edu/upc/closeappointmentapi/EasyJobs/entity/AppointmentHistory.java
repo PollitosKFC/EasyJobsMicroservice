@@ -25,6 +25,9 @@ public class AppointmentHistory {
     @Column(name="qualification")
     private Double qualification;
 
+    @Column(name="realDate")
+    private Date realDate;
+
     @Column(name="qualificationComment", length = 1000)
     private String qualificationComment;
     @JsonBackReference

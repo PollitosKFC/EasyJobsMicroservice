@@ -29,6 +29,14 @@ public class TechnicianController {
         return convertToResource(technicianCreated);
     }
 
+    @GetMapping(value = "/findTechnicianById/{technicianId}")
+    public TechnicianResource getTechnician(@PathVariable("technicianId") Long id){
+        Technician technician = appointmentService.getTechnicianById(id);
+        if (technician == null) {
+            return null;
+        }
+        return convertToResource(technician);
+    }
     @GetMapping(value = "/findAllTechnicians")
     public List<TechnicianResource> getTechnicians(){
         List<Technician> technicians = appointmentService.getAllTechnicians();

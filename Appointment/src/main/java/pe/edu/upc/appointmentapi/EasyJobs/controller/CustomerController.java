@@ -2,6 +2,7 @@ package pe.edu.upc.appointmentapi.EasyJobs.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.appointmentapi.EasyJobs.entity.Customer;
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
 @Controller
 @RestController
 @CrossOrigin(origins = "http://localhost:3306")
-@RequestMapping("/customers")
+@RequestMapping("/appointmentCustomers")
 public class CustomerController {
 
     @Autowired
@@ -25,13 +26,13 @@ public class CustomerController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping(value = "/createCustomer")
+    @PostMapping(value = "/customers/createCustomer")
     public CustomerResource createCustomer(@RequestBody SaveCustomerResource customer){
         Customer customerCreated = customerService.createCustomer(convertToEntity(customer));
         return convertToResource(customerCreated);
     }
 
-    @GetMapping(value = "/getAllCustomers")
+    @GetMapping(value = "/customers/getAllCustomers")
     public List<CustomerResource> getAllCustomers(){
         List<Customer> customers = customerService.getAllCustomers();
         if (customers == null) {
@@ -42,8 +43,12 @@ public class CustomerController {
         }).collect(Collectors.toList());
         return customerResourceList;
     }
-
-    @GetMapping(value = "/findCustomerById/{id}")
+    @GetMapping(value = "/customers/getCustomerResponse/{id}")
+    public ResponseEntity<Customer> getCustomerResponse(@PathVariable("id") Long id){
+        Customer customer = customerService.findCustomerById(id);
+        return ResponseEntity.ok(customer);
+    }
+    @GetMapping(value = "/customers/findCustomerById/{id}")
     public CustomerResource getCustomerById(@PathVariable("id") Long id){
         Customer customer = customerService.findCustomerById(id);
         if (customer == null) {
