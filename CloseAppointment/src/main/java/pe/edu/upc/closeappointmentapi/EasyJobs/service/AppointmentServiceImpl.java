@@ -69,6 +69,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         newAppointment.setAppointment_history(null);
         newAppointment.setCustomer(existingCustomer.getBody());
         newAppointment.setTechnician(existingTechnician.getBody());
+        //newAppointment.setCustomer(customerRepository.findById(id).orElse(null));
         appointmentRepository.save(newAppointment);
         return existingAppointment.getBody();
     }
@@ -102,7 +103,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         newTechnician.setTechnician_appointment(null);
         return technicianRepository.save(newTechnician);
     }
-
+// setAppointment_history(null);
     @Override
     public Technician getTechnicianById(Long id) {
         ResponseEntity<Technician> existingTechnician = technicianClient.getTechnicianResponse(id);
