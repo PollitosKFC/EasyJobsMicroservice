@@ -3,6 +3,6 @@ spring:
     name: Registry-Service
   cloud:
     config:
-      uri: http://localhost:8081
+      uri: https://easyjobs-config-service.azurewebsites.net
       username: root
       password: s3cr3t

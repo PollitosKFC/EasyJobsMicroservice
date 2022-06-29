@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: easyjobs-registry-service.azurewebsites.net
   client:
     registerWithEureka: false
     fetchRegistry: false
