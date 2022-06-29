@@ -8,4 +8,4 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: "https://${eureka.instance.hostname}:${server.port}/eureka/" #Endpoint para default zone
+      defaultZone: "https://easyjobs-registry-service.azurewebsites.net:8099/eureka/" #Endpoint para default zone
