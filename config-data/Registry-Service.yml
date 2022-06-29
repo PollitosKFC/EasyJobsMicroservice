@@ -1,13 +1,16 @@
+server:
+  port: 8099
+
 eureka:
   instance:
     hostname: easyjobs-registry-service.azurewebsites.net
     secure-port-enabled: true
     nonsecure-port-enabled: false
-    #nonSecurePort: 80
-   #securePort: 443
+    nonSecurePort: 80
+    securePort: 443
 
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: "https://easyjobs-registry-service.azurewebsites.net/eureka" #Endpoint para default zone
+      defaultZone: "https://easyjobs-registry-service.azurewebsites.net:433/eureka" #Endpoint para default zone
