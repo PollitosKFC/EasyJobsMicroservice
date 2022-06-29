@@ -3,7 +3,7 @@ spring:
     name: Accounts
   cloud:
     config:
-      uri: https://easyjobs-config-service.azurewebsites.net/
+      uri: https://easyjobs-config-service.azurewebsites.net
       username: root
       password: s3cr3t
 #boot:
