@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://ec2-54-221-134-209.compute-1.amazonaws.com:8099/eureka/
+      defaultZone: http://ec2-3-92-61-60.compute-1.amazonaws.com:8099/eureka/
 spring:
   cloud:
     gateway:
