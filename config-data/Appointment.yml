@@ -6,7 +6,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://ec2-3-83-159-208.compute-1.amazonaws.com:8086
+        url: http://ec2-44-203-252-67.compute-1.amazonaws.com:8086
   main:
     allow-bean-definition-overriding: true
   h2:
@@ -39,7 +39,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://ec2-54-221-134-209.compute-1.amazonaws.com:8099/eureka/
+      defaultZone: http://ec2-3-92-61-60.compute-1.amazonaws.com:8099/eureka/
 
 feign:
   hystrix:
