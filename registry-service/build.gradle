@@ -32,7 +32,3 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
-tasks.bootJar {
-	archiveFileName.set("app.jar")
-}
