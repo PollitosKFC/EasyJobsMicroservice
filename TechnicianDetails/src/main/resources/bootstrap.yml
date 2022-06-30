@@ -3,6 +3,6 @@ spring:
     name: TechnicianDetails
   cloud:
     config:
-      uri: http://ec2-18-208-146-247.compute-1.amazonaws.com:8081
+      uri: http://ec2-44-204-76-176.compute-1.amazonaws.com:8081
       username: root
       password: s3cr3t
