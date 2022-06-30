@@ -6,7 +6,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8086
+        url: http://ec2-3-83-159-208.compute-1.amazonaws.com:8086
   main:
     allow-bean-definition-overriding: true
   h2:
