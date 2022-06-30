@@ -39,7 +39,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8099/eureka/
+      defaultZone: http://ec2-54-221-134-209.compute-1.amazonaws.com:8099/eureka/
 
 feign:
   hystrix:
