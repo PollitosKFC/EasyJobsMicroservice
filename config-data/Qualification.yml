@@ -5,7 +5,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:8086
+        url: http://ec2-3-83-159-208.compute-1.amazonaws.com:8086
   h2:
     console:
       enabled: true
@@ -35,7 +35,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8099/eureka/
+      defaultZone: http://ec2-54-221-134-209.compute-1.amazonaws.com:8099/eureka/
 
 feign:
   hystrix:
